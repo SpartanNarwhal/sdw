@@ -1,0 +1,12 @@
+{
+  "name": "sdw",
+  "version": "1.0.0",
+  "description": "Welcome to the JavaScript Fundamentals Overview project! This repository is designed to provide a comprehensive guide to the fundamentals of JavaScript programming language.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "execute": "node index.js"
+  },
+  "author": "Donavin",
+  "license": "ISC"
+}
