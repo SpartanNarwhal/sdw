@@ -116,14 +116,41 @@
 // const newArray = map(arr, plusone);
 // console.log(newArray);
 
-const arr = [1, 3, 5, 6];
-const target = 4;
-var searchInsert = function (nums, target) {
-  for (let i = 0; i < nums.length; i++) {
-   if(nums[i] >= target) {
-    return (i);
-   };
-  }
-  return (nums.length + 1)
-};
-console.log(searchInsert(arr,target
+// const arr = [1, 3, 5, 6];
+// const target = 4;
+// var searchInsert = function (nums, target) {
+//   for (let i = 0; i < nums.length; i++) {
+//    if(nums[i] >= target) {
+//     return (i);
+//    };
+//   }
+//   return (nums.length + 1)
+// };
+// console.log(searchInsert(arr,target
+
+
+//To Be Or Not To Be function
+
+function expect(val) {
+  return {
+    toBe: function (otherVal) {
+      if (val !== otherVal) {
+        throw new Error("Not Equal");
+      }
+      return true;
+    },
+    notToBe: function (otherVal) {
+      if (val === otherVal) {
+          throw new Error("true");
+      }
+      return true;
+    }
+  };
+}
+try {
+  expect(5).toBe(5); // Passes
+  expect(5).notToBe(6); // Passes
+  expect(5).toBe(6); // Throws an error
+} catch (error) {
+  console.error(error.message); // Output: Not Equal
+}
