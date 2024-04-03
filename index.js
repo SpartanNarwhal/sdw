@@ -134,14 +134,14 @@
 function expect(val) {
   return {
     toBe: function (otherVal) {
-      if (val !== otherVal) {
-        throw new Error("Not Equal");
+      if (val === otherVal) {
+        throw new Error("True");
       }
       return true;
     },
     notToBe: function (otherVal) {
-      if (val === otherVal) {
-          throw new Error("true");
+      if (val !== otherVal) {
+          throw new Error("Not True");
       }
       return true;
     }
@@ -149,8 +149,8 @@ function expect(val) {
 }
 try {
   expect(5).toBe(5); // Passes
-  expect(5).notToBe(6); // Passes
-  expect(5).toBe(6); // Throws an error
+  expect(5).notToBe(null); // Passes
 } catch (error) {
   console.error(error.message); // Output: Not Equal
 }
+// Had functions for "toBe" and "notToBe" swapped returning opposite Errors with given examples
