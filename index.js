@@ -131,26 +131,37 @@
 
 //To Be Or Not To Be function
 
-function expect(val) {
-  return {
-    toBe: function (otherVal) {
-      if (val === otherVal) {
-        throw new Error("True");
-      }
-      return true;
-    },
-    notToBe: function (otherVal) {
-      if (val !== otherVal) {
-          throw new Error("Not True");
-      }
-      return true;
-    }
-  };
-}
-try {
-  expect(5).toBe(5); // Passes
-  expect(5).notToBe(null); // Passes
-} catch (error) {
-  console.error(error.message); // Output: Not Equal
-}
+// function expect(val) {
+//   return {
+//     toBe: function (otherVal) {
+//       if (val === otherVal) {
+//         throw new Error("True");
+//       }
+//       return true;
+//     },
+//     notToBe: function (otherVal) {
+//       if (val !== otherVal) {
+//           throw new Error("Not True");
+//       }
+//       return true;
+//     }
+//   };
+// }
+// try {
+//   expect(5).toBe(5); // Passes
+//   expect(5).notToBe(null); // Passes
+// } catch (error) {
+//   console.error(error.message); // Output: Not Equal
+// }
 // Had functions for "toBe" and "notToBe" swapped returning opposite Errors with given examples
+
+
+//CustomSort functuion practice
+function customSort(arr, fn) {
+    return arr.sort((a, b ) => fn(a) - fn(b));
+}
+const arr = [5, 4, 1, 2, 3]
+const fn = (x) => x;
+
+const sortedArr = customSort(arr, fn);
+console.log(sortedArr);
